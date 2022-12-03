@@ -27,5 +27,14 @@ namespace UsefulMethods
 
             return string.Empty;
         }
+        public static IEnumerable<string> GetLines(string input, bool cutEmptyLines = true)
+        {
+            var lines = input.Split(new string[] { "\n" }, StringSplitOptions.None);
+            return cutEmptyLines ? lines.Where(line => !string.IsNullOrEmpty(line)) : lines;
+        }
+
+
     }
+
+
 }

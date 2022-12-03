@@ -1,11 +1,11 @@
 ﻿var input = await UsefulMethods.InputCreator.GetPuzzleInput(1);
 var elfs = new List<int>();
 int sum = 0;
-foreach(var line in input.Split('\n', 10000).Where(line => line != null))
+foreach(var line in UsefulMethods.InputCreator.GetLines(input, false))
 {
     if(line.Length > 0)
     {
-        sum += Int32.Parse(line.Trim());
+        sum += int.Parse(line.Trim());
     }
     else
     {
@@ -15,5 +15,5 @@ foreach(var line in input.Split('\n', 10000).Where(line => line != null))
 }
 
 var sortedElfs = elfs.OrderByDescending(food => food);
-Console.WriteLine("First answer: " + sortedElfs.First());
+Console.WriteLine("First answer: " + sortedElfs.FirstOrDefault());
 Console.WriteLine("Second anser: " + sortedElfs.Take(3).Sum());
